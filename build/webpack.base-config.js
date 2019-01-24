@@ -25,11 +25,6 @@ module.exports = {
         }
       },
       {
-        test: /\.(jsx|js)$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader"
-      },
-      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader, 

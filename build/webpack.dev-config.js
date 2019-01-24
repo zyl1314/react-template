@@ -13,6 +13,16 @@ module.exports = merge(base, {
     openPage: '#/home',
     open: 'Chrome'
   },
+  module: {
+    rules: [
+      {
+        test: /\.(jsx|js)$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: "eslint-loader"
+      }      
+    ]
+  },  
   plugins: [
 
   ]
