@@ -1,17 +1,17 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import DynamicRoute from '@src/libs/dynamic';
+import DynamicRoute from './libs/dynamic';
 
 const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('./routes/Home/index')
+    component: () => import('./routes/Home/index') as Promise<any>
   },
   {
     path: '/list',
     name: 'list',
-    component: () => import('./routes/List/index')
+    component: () => import('./routes/List/index') as Promise<any>
   }
 ];
 
@@ -24,7 +24,7 @@ export default () => (
             key={r.name}
             name={r.name}
             path={r.path}
-            exact
+            exact={true}
             render={() => <DynamicRoute load={r.component} />}
           />
         ))

@@ -3,13 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index'),
+  entry: path.resolve(__dirname, '../src/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[contenthash].js'
   },
   resolve: {
-    extensions: [".js", ".jsx", ".css", ".scss", ".json"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
     alias: {
       '@src': path.resolve(__dirname, '../src'),
       '@component': path.resolve(__dirname, '../src/components')
@@ -25,16 +25,21 @@ module.exports = {
         }
       },
       {
+        test: /\.(tsx|ts)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'ts-loader']
+      },
+      {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, 
-          { 
+          MiniCssExtractPlugin.loader,
+          {
             loader: 'css-loader',
             options: {
               modules: true,
               localIdentName: '[path][name]__[local]--[hash:base64:5]'
             }
-          }, 
+          },
           'sass-loader'
         ],
         exclude: /node_modules/
