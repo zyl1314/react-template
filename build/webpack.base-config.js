@@ -3,13 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index.tsx'),
+  entry: path.resolve(__dirname, '../src/index.jsx'),
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[contenthash].js'
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
+    extensions: [".js", ".jsx", ".css", ".scss", ".json"],
     alias: {
       '@src': path.resolve(__dirname, '../src'),
       '@component': path.resolve(__dirname, '../src/components')
@@ -23,11 +23,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.(tsx|ts)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'ts-loader']
       },
       {
         test: /\.scss$/,

@@ -6,7 +6,6 @@ module.exports = merge(base, {
   mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, "../dist"),
-    hot: true,
     port: 8080,
     host: 'localhost',
     overlay: true,
@@ -16,21 +15,12 @@ module.exports = merge(base, {
   },
   module: {
     rules: [
-      {
-        test: /\.(jsx|js)$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: "eslint-loader"
-      },
-      {
-        test: /\.(tsx|ts)$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: "tslint-loader"
-      }
+      // {
+      //   test: /\.(jsx|js)$/,
+      //   exclude: /node_modules/,
+      //   enforce: 'pre',
+      //   loader: "eslint-loader"
+      // }
     ]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 });

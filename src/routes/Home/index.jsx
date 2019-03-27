@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './index.scss';
 
-const Home: React.SFC<{}> = () => {
+const Home = () => {
   return (
     <div className={style.home}>
       <span>this is home</span>

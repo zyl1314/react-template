@@ -6,12 +6,12 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('./routes/Home/index') as Promise<any>
+    component: () => import('./routes/Home/index')
   },
   {
     path: '/list',
     name: 'list',
-    component: () => import('./routes/List/index') as Promise<any>
+    component: () => import('./routes/List/index')
   }
 ];
 

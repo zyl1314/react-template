@@ -1,6 +1,6 @@
 import React from 'react';
 
-const List: React.SFC<{}> = () => {
+const List = () => {
   return <p>this is list</p>;
 };
 
